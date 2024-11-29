@@ -1,0 +1,61 @@
+<ion-content>
+  <!-- Pantalla de carga futurista -->
+  <div class="loading-screen" *ngIf="isLoading">
+    
+    <!-- Fondo animado -->
+    <div class="background-container"></div>
+
+    <!-- Vehículo futurista (coche o nave espacial) en movimiento -->
+    <div class="vehicle-container">
+      <div class="vehicle">
+        <div class="vehicle-body"></div>
+        <div class="vehicle-wheels">
+          <div class="wheel"></div>
+          <div class="wheel"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de carga -->
+    <div class="progress-container">
+      <div class="progress-bar" [style.width]="progress + '%'"></div>
+    </div>
+
+    <!-- Texto dinámico -->
+    <div class="text-container">
+      <p class="loading-text">{{ loadingMessage }}</p>
+      <p class="progress-text">Cargando...</p>
+    </div>
+    
+  </div>
+
+  <!-- Fondo y formulario (cuando la carga termina) -->
+  <div class="background-container" *ngIf="!isLoading"></div>
+  
+  <div class="glass-container" *ngIf="!isLoading">
+    <h1>Bienvenido a TellevoApp</h1>
+    <p>Inicia sesión para continuar</p>
+
+    <form (ngSubmit)="login()">
+      <ion-item class="input-item">
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit">Iniciar sesión</ion-button>
+    </form>
+
+    <div class="forgot-password-link">
+      <p><a href="/password-recovery">¿Olvidaste tu contraseña?</a></p>
+    </div>
+
+    <div class="register-link">
+      <p>¿No tienes cuenta? <a href="/register">Regístrate aquí</a></p>
+    </div>
+  </div>
+</ion-content>

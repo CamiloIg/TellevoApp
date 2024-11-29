@@ -1,0 +1,33 @@
+<div class="loading-screen" *ngIf="isLoading">
+  <!-- Fondo con animación de gradiente -->
+  <div class="background-container"></div>
+
+  <!-- Efecto de partículas flotantes -->
+  <div class="particle-effect">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Vehículo futurista -->
+  <div class="vehicle-container">
+    <div class="vehicle">
+      <div class="vehicle-body"></div>
+      <div class="vehicle-wheels">
+        <div class="wheel"></div>
+        <div class="wheel"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de carga -->
+  <div class="progress-container">
+    <div class="progress-bar" [style.width]="progress + '%'"></div>
+  </div>
+
+  <!-- Texto dinámico -->
+  <div class="text-container">
+    <p class="loading-text">{{ loadingMessage }}</p>
+    <p class="progress-text">Cargando tu viaje...</p>
+  </div>
+</div>

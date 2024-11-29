@@ -1,0 +1,141 @@
+/* Fondo animado futurista */
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #6a0dad, #00bfff, #00ff00);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Contenedor del saludo */
+.welcome-container {
+  text-align: center;
+  margin: 20px 0;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.welcome-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.welcome-container p {
+  font-size: 1.2rem;
+}
+
+/* Campo de ubicación */
+ion-item {
+  margin: 20px 0;
+  --background: rgba(255, 255, 255, 0.15); /* Fondo más oscuro */
+  --color: #fff;
+}
+
+/* Botón de búsqueda */
+.search-button {
+  margin-top: 20px;
+  --background: linear-gradient(135deg, #ff007f, #ff8c00);
+  --color: white;
+  border-radius: 25px;
+  font-size: 18px;
+  height: 55px;
+  box-shadow: 0 4px 10px rgba(255, 0, 127, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 0, 127, 0.7);
+}
+
+/* Lista de viajes */
+.trip-list {
+  margin: 20px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+}
+
+.trip-item {
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  animation: slideIn 0.5s ease-out forwards;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.trip-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Botón para agregar viajes */
+.add-trip-button {
+  --background: linear-gradient(135deg, #43cea2, #185a9d);
+  --color: white;
+  margin: 20px auto;
+  width: 90%;
+  font-size: 18px;
+  height: 50px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(67, 206, 162, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-trip-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(67, 206, 162, 0.7);
+}
+
+/* Animación de formulario */
+.add-trip-container {
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  animation: formAppear 1s ease-in-out;
+}
+
+@keyframes formAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

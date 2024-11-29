@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis Reservas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let reservation of reservations">
+      <ion-label>
+        <h2>{{ reservation.trip.startLocation }} → {{ reservation.trip.endLocation }}</h2>
+        <p>Hora de salida: {{ reservation.trip.time | date:'short' }}</p>
+        <p>Precio: ${{ reservation.trip.pricePerPassenger }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

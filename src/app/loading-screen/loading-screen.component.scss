@@ -1,0 +1,121 @@
+/* Fondo de carga animado */
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a2a6c, #00bfff, #b21f1f);
+  background-size: 400% 400%;
+  animation: gradientBackground 10s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Efecto del vehículo futurista en movimiento */
+.vehicle-container {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: vehicleMove 3s ease-out infinite;
+}
+
+.vehicle {
+  position: relative;
+  width: 80px;
+  height: 40px;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  border-radius: 10px;
+}
+
+.vehicle-body {
+  width: 100%;
+  height: 100%;
+  background: #00ff00;
+  border-radius: 50%;
+}
+
+.vehicle-wheels {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -10px;
+  width: 100%;
+}
+
+.wheel {
+  width: 12px;
+  height: 12px;
+  background-color: #333;
+  border-radius: 50%;
+  animation: rotateWheel 0.5s linear infinite;
+}
+
+@keyframes rotateWheel {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes vehicleMove {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(50px); }
+  100% { transform: translateX(0); }
+}
+
+/* Barra de progreso */
+.progress-container {
+  position: absolute;
+  bottom: 10%;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.2);
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #00ff00;
+  width: 0%; /* Inicialmente está vacía */
+  transition: width 1s ease-out; /* Suaviza la transición */
+}
+
+/* Texto dinámico */
+.text-container {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 24px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.progress-text {
+  font-size: 18px;
+  color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+  animation: moveText 2s ease-in-out infinite alternate;
+}
+
+@keyframes moveText {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}

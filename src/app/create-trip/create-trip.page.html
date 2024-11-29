@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crear Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Ubicación de inicio</ion-label>
+    <ion-input [(ngModel)]="startLocation" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Ubicación de destino</ion-label>
+    <ion-input [(ngModel)]="endLocation" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Hora de salida</ion-label>
+    <ion-input [(ngModel)]="time" type="datetime-local"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Precio por pasajero</ion-label>
+    <ion-input [(ngModel)]="pricePerPassenger" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Asientos disponibles</ion-label>
+    <ion-input [(ngModel)]="availableSeats" type="number"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="createTrip()">Crear Viaje</ion-button>
+</ion-content>

@@ -1,0 +1,194 @@
+/* Fondo animado futurista */
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  z-index: -1; /* Detrás del formulario */
+}
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Pantalla de carga futurista */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro translúcido */
+}
+
+/* Animación de las órbitas */
+.loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: orbit 2s linear infinite;
+}
+
+.orbit:nth-child(1) {
+  animation-duration: 2s;
+}
+
+.orbit:nth-child(2) {
+  width: 75%;
+  height: 75%;
+  left: 12.5%;
+  top: 12.5%;
+  animation-duration: 3s;
+}
+
+.orbit:nth-child(3) {
+  width: 50%;
+  height: 50%;
+  left: 25%;
+  top: 25%;
+  animation-duration: 4s;
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mensaje de carga */
+.loading-screen p {
+  margin-top: 20px;
+  color: white;
+  font-size: 18px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Centrado absoluto */
+ion-content {
+  position: relative; /* Contenedor posicionado */
+  height: 100vh; /* Altura total de la pantalla */
+}
+
+/* Centrar el formulario */
+.glass-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Ajusta para centrar perfectamente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6); /* Fondo translúcido */
+  backdrop-filter: blur(12px); /* Efecto vidrio */
+  border-radius: 20px; /* Bordes redondeados */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Sombra suave */
+  padding: 40px;
+  max-width: 400px; /* Ancho máximo */
+  width: 90%; /* Se adapta al tamaño de la pantalla */
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Borde claro */
+}
+
+/* Encabezado del formulario */
+h1 {
+  font-size: 2.2em;
+  color: #00ff00; /* Verde llamativo */
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0, 255, 0, 0.7); /* Resplandor verde */
+}
+
+p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 25px;
+  font-size: 1em;
+}
+
+/* Campos del formulario */
+.input-item {
+  --background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  margin: 15px 0;
+  padding: 15px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  width: 100%; /* Asegura que los campos ocupen todo el ancho */
+}
+
+.input-item ion-input {
+  color: white;
+}
+
+.input-item:focus-within {
+  box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.7); /* Resplandor azul */
+  transform: scale(1.02);
+  animation: slideIn 0.5s ease-out forwards; /* Animación al enfocar */
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Botón futurista */
+ion-button {
+  --background: linear-gradient(135deg, #43cea2, #185a9d); /* Degradado atractivo */
+  --color: white; /* Texto blanco */
+  border-radius: 25px;
+  font-size: 18px;
+  height: 55px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 15px rgba(67, 206, 162, 0.5);
+}
+
+ion-button:hover {
+  transform: scale(1.05); /* Escala al pasar el cursor */
+  box-shadow: 0 6px 20px rgba(67, 206, 162, 0.7); /* Sombra más profunda */
+}
+
+ion-button:active {
+  transform: scale(0.98); /* Efecto al presionar */
+  box-shadow: 0 2px 10px rgba(67, 206, 162, 0.5);
+}
+
+/* Texto de ayuda */
+.login-link {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.login-link a {
+  color: #00bfff; /* Azul claro */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  color: #ffffff;
+}

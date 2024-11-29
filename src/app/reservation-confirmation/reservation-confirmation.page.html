@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Confirmación de Reserva</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Detalles del Viaje</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Pasajero:</strong> {{ passengerDetails.name }}</p>
+      <p><strong>Viaje:</strong> {{ tripDetails.startLocation }} → {{ tripDetails.endLocation }}</p>
+      <p><strong>Hora de salida:</strong> {{ tripDetails.time | date:'short' }}</p>
+      <p><strong>Precio:</strong> ${{ tripDetails.pricePerPassenger }}</p>
+      <p><strong>Asientos reservados:</strong> 1</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

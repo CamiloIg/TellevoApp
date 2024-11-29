@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="true">
+  <!-- Fondo animado -->
+  <div class="background-container"></div>
+
+  <!-- Contenedor del formulario -->
+  <div class="glass-container">
+    <h1>Agregar un nuevo viaje</h1>
+
+    <form (ngSubmit)="addTrip()">
+      <ion-item>
+        <ion-label position="floating">Nombre del conductor</ion-label>
+        <ion-input [(ngModel)]="newTrip.driverName" name="driverName" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Vehículo</ion-label>
+        <ion-input [(ngModel)]="newTrip.vehicle" name="vehicle" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Hora de salida</ion-label>
+        <ion-datetime [(ngModel)]="newTrip.departureTime" name="departureTime" required></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Asientos disponibles</ion-label>
+        <ion-input [(ngModel)]="newTrip.availableSeats" name="availableSeats" type="number" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Precio por pasajero</ion-label>
+        <ion-input [(ngModel)]="newTrip.pricePerPassenger" name="pricePerPassenger" type="number" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit">Agregar Viaje</ion-button>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,194 @@
+/* Fondo animado futurista */
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  z-index: -1; /* Mantiene el fondo detrás */
+}
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Centrado absoluto */
+ion-content {
+  position: relative; /* Contenedor posicionado */
+  height: 100vh; /* Altura total de la pantalla */
+}
+
+/* Centrar el formulario */
+.glass-container {
+  position: absolute;
+  top: 50%; /* Posiciona desde el centro vertical */
+  left: 50%; /* Posiciona desde el centro horizontal */
+  transform: translate(-50%, -50%); /* Ajusta para centrar perfectamente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6); /* Fondo translúcido */
+  backdrop-filter: blur(12px); /* Efecto vidrio */
+  border-radius: 20px; /* Bordes redondeados */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Sombra suave */
+  padding: 40px;
+  max-width: 400px; /* Ancho máximo */
+  width: 90%; /* Se adapta al tamaño de la pantalla */
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Borde claro */
+}
+
+/* Encabezado del formulario */
+h1 {
+  font-size: 2em;
+  color: #00ff00; /* Verde llamativo */
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0, 255, 0, 0.7); /* Resplandor verde */
+}
+
+p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 25px;
+  font-size: 1em;
+}
+
+/* Campos del formulario */
+.input-item {
+  --background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  margin: 15px 0;
+  padding: 15px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  width: 100%; /* Asegura que los campos ocupen todo el ancho */
+}
+
+.input-item ion-input {
+  color: white;
+}
+
+.input-item:focus-within {
+  box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.7); /* Resplandor azul */
+  transform: scale(1.02);
+  animation: slideIn 0.5s ease-out forwards; /* Animación al enfocar */
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Botón futurista */
+ion-button {
+  --background: linear-gradient(135deg, #1e90ff, #007bff); /* Degradado atractivo */
+  --color: white; /* Texto blanco */
+  border-radius: 25px;
+  font-size: 18px;
+  height: 55px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.5);
+}
+
+ion-button:hover {
+  transform: scale(1.05); /* Escala al pasar el cursor */
+  box-shadow: 0 6px 20px rgba(30, 144, 255, 0.7); /* Sombra más profunda */
+}
+
+ion-button:active {
+  transform: scale(0.98); /* Efecto al presionar */
+  box-shadow: 0 2px 10px rgba(30, 144, 255, 0.5);
+}
+
+/* Enlace "Inicia sesión aquí" */
+.login-link {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.login-link a {
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  color: #ffffff;
+}
+
+/* Pantalla de carga futurista */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro translúcido */
+  z-index: 9999; /* Siempre encima */
+  color: #fff;
+  text-align: center;
+}
+
+.loader {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.orbit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 4px solid transparent;
+  border-top: 4px solid #00ff00; /* Verde */
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+.orbit:nth-child(2) {
+  animation-delay: -0.4s;
+  border-top-color: #1e90ff; /* Azul */
+}
+
+.orbit:nth-child(3) {
+  animation-delay: -0.8s;
+  border-top-color: #ff4500; /* Rojo */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Texto dinámico */
+.loading-text {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  animation: pulseText 2s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}

@@ -1,0 +1,20 @@
+:root {
+    /* Colores vibrantes y modernos */
+    --ion-color-primary: #3880ff; // Azul vibrante para el color primario
+    --ion-color-secondary: #3dc2ff; // Azul claro para el color secundario
+    --ion-color-tertiary: #5260ff;  // Azul más oscuro para detalles
+  
+    /* Colores de fondo y texto */
+    --ion-color-light: #f4f4f4;  // Fondo claro
+    --ion-color-dark: #222428;   // Texto oscuro para contraste
+  
+    /* Color de botón y estado */
+    --ion-button-background: var(--ion-color-primary);
+    --ion-button-color: white;  // Texto blanco en botones
+    --ion-button-border-radius: 12px; // Bordes redondeados para botones
+  
+    /* Colores personalizados */
+    --ion-background-color: #ffffff; // Fondo blanco para la mayor parte de la app
+    --ion-text-color: #222428;  // Color de texto oscuro para buena legibilidad
+  }
+  
