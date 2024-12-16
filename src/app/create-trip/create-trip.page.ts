@@ -19,7 +19,7 @@ export class CreateTripPage {
   createTrip() {
     const tripData = {
       driverId: 'userId', // Deberás obtener el userId del usuario logueado
-      startLocation: this.startLocation,
+      tripIni: this.startLocation,
       endLocation: this.endLocation,
       time: this.time,
       pricePerPassenger: this.pricePerPassenger,

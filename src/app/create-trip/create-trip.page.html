@@ -1,4 +1,7 @@
 <ion-header>
+  <ion-button>
+    <ion-icon slot="icon-only" name="home" color="light"></ion-icon>
+  </ion-button>
   <ion-toolbar>
     <ion-title>Crear Viaje</ion-title>
   </ion-toolbar>
@@ -7,11 +10,11 @@
 <ion-content>
   <ion-item>
     <ion-label position="floating">Ubicación de inicio</ion-label>
-    <ion-input [(ngModel)]="startLocation" type="text"></ion-input>
+    <ion-input [(ngModel)]="tripIni" type="text"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Ubicación de destino</ion-label>
-    <ion-input [(ngModel)]="endLocation" type="text"></ion-input>
+    <ion-input [(ngModel)]="tripDes" type="text"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Hora de salida</ion-label>

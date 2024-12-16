@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../services/firestore.service'; // Importa el servicio
+import { AuthenticationService } from '../services/authentication.service';
 import { ToastController } from '@ionic/angular'; // Importa ToastController
 import { Router } from '@angular/router'; // Importa Router para navegar a la página de confirmación
 
@@ -9,23 +10,47 @@ import { Router } from '@angular/router'; // Importa Router para navegar a la p�
   styleUrls: ['./trip-list.page.scss'],
 })
 export class TripListPage implements OnInit {
+  trips: any[] = [];
+  filteredTrips: any[] = [];
+  destination: string = ''; // Filtro por destino
+  newTrip = {
+    driverName: '',
+    vehicle: '',
+    departureTime: '',
+    availableSeats: 0,
+    pricePerPassenger: 0,
+  };
+  authService: any;
+   
 
-  trips: any[] = []; // Array para almacenar los viajes disponibles
-
-  constructor(private firestore: FirestoreService, private toastController: ToastController, private router: Router) {}
-
+  constructor(
+    private firestore: FirestoreService, 
+    private toastController: ToastController, 
+    private router: Router
+  ) {}
+  
   ngOnInit() {
-    // Cargar todos los viajes desde Firestore
-    this.firestore.getCollection('Trips').subscribe(data => {
-      this.trips = data.map(e => {
-        return {
-          id: e.payload.doc.id, // Agregar el ID del documento
-          ...e.payload.doc.data() // Agregar los datos del viaje
-        };
-      });
+    
+    this.loadTrips();
+  }
+
+  loadTrips() {
+    this.firestore.getCollection('Trips').subscribe((data) => {
+      this.trips = data;
+      this.filteredTrips = data; // Mostrar todos los viajes inicialmente
     });
   }
 
+  searchTrips() {
+    this.filteredTrips = this.trips.filter((trip) =>
+      trip.endLocation.toLowerCase().includes(this.destination.toLowerCase())
+    );
+  }
+
+  selectTrip(trip: any) {
+    this.showToast(`¡Has reservado el viaje de ${trip.tripIni} a ${trip.tripDes}!`);
+    // Aquí puedes añadir lógica para manejar reservas
+  }
   // Función para realizar la reserva
   async reserveTrip(trip: any) {
     if (trip.availableSeats > 0) {

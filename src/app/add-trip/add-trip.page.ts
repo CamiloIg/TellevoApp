@@ -10,8 +10,10 @@ import { ToastController } from '@ionic/angular';
 export class AddTripPage {
   newTrip = {
     driverName: '',
+    tripIni: '',
+    tripDes: '',
     vehicle: '',
-    departureTime: '',
+    tripHrs: '',
     availableSeats: 0,
     pricePerPassenger: 0,
   };
@@ -22,14 +24,14 @@ export class AddTripPage {
   ) {}
 
   async addTrip() {
-    if (!this.newTrip.driverName || !this.newTrip.vehicle || !this.newTrip.departureTime || this.newTrip.availableSeats <= 0 || this.newTrip.pricePerPassenger <= 0) {
+    if (!this.newTrip.driverName || !this.newTrip.vehicle || !this.newTrip.tripHrs || this.newTrip.availableSeats <= 0 || this.newTrip.pricePerPassenger <= 0) {
       this.showToast('Por favor, completa todos los campos.');
       return;
     }
 
     const tripData = {
       ...this.newTrip,
-      startLocation: 'Ubicación de origen', // Este valor puede ser dinámico si se agrega
+      tripIni: 'Ubicación de origen', // Este valor puede ser dinámico si se agrega
       time: new Date(), // Hora actual
     };
 
@@ -55,8 +57,10 @@ export class AddTripPage {
   private resetForm() {
     this.newTrip = {
       driverName: '',
+      tripIni: '',
+      tripDes: '',
       vehicle: '',
-      departureTime: '',
+      tripHrs: '',
       availableSeats: 0,
       pricePerPassenger: 0,
     };

@@ -23,6 +23,7 @@ export class HomePage implements OnInit {
     pricePerPassenger: 0,
   };
 
+
   constructor(
     private firestore: FirestoreService,
     private authService: AuthenticationService,
@@ -67,7 +68,7 @@ export class HomePage implements OnInit {
 
     const tripData = {
       ...this.newTrip,
-      startLocation: 'Ubicación de origen', // Este valor puede obtenerse dinámicamente
+      tripIni: 'Ubicación de origen', // Este valor puede obtenerse dinámicamente
       time: new Date(), // Hora actual
     };
 
@@ -88,7 +89,7 @@ export class HomePage implements OnInit {
   }
 
   selectTrip(trip: any) {
-    this.showToast(`¡Has reservado el viaje de ${trip.startLocation} a ${trip.endLocation}!`);
+    this.showToast(`¡Has reservado el viaje de ${trip.tripIni} a ${ trip.tripDes }!`);
     // Aquí puedes añadir lógica para manejar reservas
   }
 

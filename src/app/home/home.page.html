@@ -2,39 +2,39 @@
   <!-- Fondo animado futurista -->
   <div class="background-container"></div>
 
-  <!-- Contenedor del saludo -->
-  <div class="welcome-container">
-    <h1>¡Hola, {{ userName }}!</h1>
-    <p>Busca y selecciona el viaje de tu preferencia.</p>
-  </div>
-
-  <!-- Campo para ingresar la ubicación -->
-  <ion-item>
-    <ion-label position="floating">¿A dónde quieres ir?</ion-label>
-    <ion-input [(ngModel)]="destination" placeholder="Introduce tu destino"></ion-input>
-  </ion-item>
-
-  <ion-button expand="block" (click)="searchTrips()" class="search-button">
-    Buscar Viajes
+  <ion-button routerLink="/login">
+    <ion-icon slot="icon-only" name="arrow-back" color="light"></ion-icon>
   </ion-button>
 
+  <!-- Contenedor del saludo -->
+  <div class="welcome-container">
+    <h1>¡Bienvenido!</h1>
+    <p>Busca y selecciona el viaje de tu preferencia.</p>
+    <p>Estos son los viajes que tenemos disponibles</p>
+  </div>
+ 
+  
+  <div *ngIf="isOwner">
+    <ion-button expand="block" color="primary" (click)="navigateToAddTrip()">
+      Agregar Nuevo Viaje
+    </ion-button>
+  </div>
+ 
+
   <!-- Lista de viajes disponibles -->
-  <ion-list class="trip-list">
+  <ion-list *ngIf="isOwner"class="trip-list">
     <ion-item *ngFor="let trip of filteredTrips" (click)="selectTrip(trip)" class="trip-item">
       <ion-label>
-        <h2>{{ trip.startLocation }} → {{ trip.endLocation }}</h2>
-        <p>🕒 Hora de salida: {{ trip.time | date:'short' }}</p>
+        <h2>{{ trip.tripIni }} → {{ trip.tripDes }}</h2>
+        <p>🕒 Hora de salida: {{ trip.tripHrs | date:'short' }}</p>
         <p>🚘 Vehículo: {{ trip.vehicle }} (Conductor: {{ trip.driverName }})</p>
         <p>💺 Asientos disponibles: {{ trip.availableSeats }}</p>
         <p>💲 Precio: ${{ trip.pricePerPassenger }}</p>
       </ion-label>
     </ion-item>
   </ion-list>
-
-  <!-- Botón para agregar un nuevo viaje (visible solo para conductores) -->
-  <div *ngIf="isOwner">
-    <ion-button expand="block" color="primary" (click)="navigateToAddTrip()">
-      Agregar Nuevo Viaje
-    </ion-button>
-  </div>
+  
 </ion-content>
+<div>
+  <ion-button expand="block" routerLink="/trip-list">Viajes Disponibles</ion-button>
+</div>
